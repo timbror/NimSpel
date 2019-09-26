@@ -1,32 +1,44 @@
-let sticks = 21;
-let player = 0;
+let userInput = document.getElementById('userInput');
+let player = document.getElementById('player');
+let numberOfSticks = document.getElementById('noOfSticks');
+let sticksLeft = document.getElementById('sticksLeft');
 
-function chooseSticks(sticks, player) {
-    let valdStickor = 0;
+let totalSticks = 21;
+let currentPlayer = "1";
 
-    while (!(valdStickor == 3 || valdStickor == 2 || valdStickor == 1)) {
-        valdStickor = prompt(" Det är" + sticks + " stickor kvar.\n " + "Det är spelare " + player + " player tur." + "Välj antal stickor (1,2 eller 3)");
+function drawSticks() { //Sticks börjar som tom sträng, loopen plussar på med en '|' beroende på hur stor totalSticks är.
+    let sticks = '';
+    for (let i = 0; i < totalSticks; i++) {
+        sticks += '|';
     }
+    numberOfSticks.innerHTML = sticks;
+}
+drawSticks(); //Kalla på funktionen så att stickor visas.
 
-    return sticks - valdStickor;
+function chooseSticks() { //Om användarens val av stickor uppfyller kraven, ta bort x antal stickor och skriv ut hur många stickor som är kvar.
+    if (userInput.value > 0 && userInput.value <= totalSticks) {
+        totalSticks -= userInput.value;
+        sticksLeft.innerHTML = totalSticks + " Sticks left!";
+    }
 }
 
-while (sticks > 0) {
-    if (player % 2 == 0) {
-        sticks = chooseSticks(sticks, 1);
-
-        if (sticks <= 0) {
-            console.log("Player 1 Lost");
-            alert("Player 1 lost");
+function switchPlayer() {  //Byt spelare och skriver ut vinnaren.
+        if (currentPlayer == 1) {
+            currentPlayer = 2;
         }
-    } else {
-        sticks = chooseSticks(sticks, 2);
-
-        if (sticks <= 0) {
-            alert("Player 2 lost");
-            console.log("Player 2 Lost");
+        else if (currentPlayer == 2) {
+            currentPlayer = 1;
         }
-
-    }
-
+        player.innerHTML = "Player " + currentPlayer;
+        
+        while(totalSticks == 0) {
+            player.innerHTML = "Player " + currentPlayer + " won, congratulations!";
+            break;
+        }
 }
+
+document.getElementById('button').addEventListener('click', function (e) {
+    chooseSticks();
+    drawSticks();
+    switchPlayer();
+});
