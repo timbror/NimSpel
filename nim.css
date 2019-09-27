@@ -1,3 +1,103 @@
 * {
-    background-color: lightgray;
+    background-color: #212227;
+}
+.container {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #212227;
+    padding: 10px 20px 20px 10px;
+    border-radius: 5px;
+    border: solid 2px #76B6B2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex;
+}
+
+h2 {
+    font-size: 40px;
+    display: block;
+    color: #AAB9CF;
+    font-family: "Century Gothic";
+}
+h2:hover {
+    color: #76B6B2;
+}
+
+#player {
+    font-size: 20px;
+    color:#AAB9CF;
+    font-family: "Century Gothic";
+    display: block;
+    left: 300px;
+    top: 220px;
+}
+#player:hover {
+    color: #76B6B2;
+}
+#sticksLeft {
+    font-size: 20px;
+    color:#AAB9CF;
+    font-family: "Century Gothic";
+    display: block;
+    left: 100px;
+    top: 220px;
+}
+#sticksLeft:hover {
+    color: #76B6B2;
+}
+
+#button {
+    font-family: "Century Gothic";
+    margin: 5px;
+    color: #76B6B2;
+    background: #212227;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid #AAB9CF;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+#button:hover {
+    background-color: #212227;
+    color: #76B6B2;
+}
+
+#userInput {
+    float:left;
+    width: 20%;
+    margin: 5px;
+    color: #76B6B2;
+    background: #212227;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid #AAB9CF;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+#noOfSticks {
+    font-size: 40px;
+    display: block;
+    margin: 5px;
+    color: #AAB9CF;
+    text-decoration: none;
+    text-align: center;
+}
+#noOfSticks:hover {
+    background-color: #212227;
+    color:#76B6B2;
+}
+
+.container a {
+    font-family: "Century Gothic";
+    width: 90%;
+    position: relative;
+    margin: 5px;
+    color: #76B6B2;
+    background: #212227;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid #AAB9CF;
+    border-radius: 3px;
+    padding: 5px 10px;
 }
