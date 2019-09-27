@@ -5,29 +5,31 @@ let sticksLeft = document.getElementById('sticksLeft');
 
 let totalSticks = 21;
 let currentPlayer = "1";
+sticksLeft.innerHTML = "Total sticks: " + totalSticks;
 
-function drawSticks() { //Sticks börjar som tom sträng, loopen plussar på med en '|' beroende på hur stor totalSticks är.
+function sticks() { //Sticks börjar som tom sträng, loopen plussar på med en '|' beroende på hur stor totalSticks är.
     let sticks = '';
     for (let i = 0; i < totalSticks; i++) {
         sticks += '|';
     }
     numberOfSticks.innerHTML = sticks;
 }
-drawSticks(); //Kalla på funktionen så att stickor visas.
+sticks(); //Kalla på funktionen så att stickor visas.
 
-function chooseSticks() { //Om användarens val av stickor uppfyller kraven, ta bort x antal stickor och skriv ut hur många stickor som är kvar.
+function removeSticks() { //Om användarens val av stickor uppfyller kraven, ta bort x antal stickor och skriv ut hur många stickor som är kvar.
+    
     if (userInput.value > 0 && userInput.value <= totalSticks) {
         totalSticks -= userInput.value;
         sticksLeft.innerHTML = totalSticks + " Sticks left!";
     }
 }
 
-function switchPlayer() {  //Byt spelare och skriver ut vinnaren.
-        if (currentPlayer == 1) {
-            currentPlayer = 2;
+function changePlayer() {  //Byt spelare och skriver ut vinnaren, truthy/falsy.
+        if (currentPlayer == "1") {
+            currentPlayer = "2";
         }
-        else if (currentPlayer == 2) {
-            currentPlayer = 1;
+        else if (currentPlayer == "2") {
+            currentPlayer = "1";
         }
         player.innerHTML = "Player " + currentPlayer;
         
@@ -38,7 +40,7 @@ function switchPlayer() {  //Byt spelare och skriver ut vinnaren.
 }
 
 document.getElementById('button').addEventListener('click', function (e) {
-    chooseSticks();
-    drawSticks();
-    switchPlayer();
+    removeSticks();
+    sticks();
+    changePlayer();
 });
